@@ -7,4 +7,4 @@ RUN pip install langid pandas tqdm tira-rest-api-client
 
 ADD assi2.py /app/assi2.py
 
-ENTRY ["python", "assi2.py"]
+ENTRYPOINT ["python", "assi2.py"]
