@@ -1,0 +1,9 @@
+FROM python:3.9-slim
+
+WORKDIR /app
+
+RUN pip install langid pandas tqdm tira-rest-api-client
+
+COPY assi2.py /app/assi2.py
+
+CMD ["python", "assi2.py"]
