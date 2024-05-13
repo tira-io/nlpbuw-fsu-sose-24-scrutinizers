@@ -1,9 +1,6 @@
-FROM python:3.9-slim
+# docker build -t fschlatt/authorship-verification-trivial:0.0.1 .
+FROM Tirthkumar1/natural-language-processing-exercises:0.0.1
 
-WORKDIR /app
+ADD assi2.py /code/assi2.py
 
-RUN pip install langid pandas tqdm tira-rest-api-client
-
-COPY assi2.py /app/assi2.py
-
-CMD ["python", "assi2.py"]
+ENTRYPOINT ["python3", "/code/assi2.py"]
