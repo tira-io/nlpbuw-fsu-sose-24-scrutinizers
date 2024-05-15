@@ -11,7 +11,7 @@ from tira.third_party_integrations import get_output_directory
 if __name__ == "__main__":
     tira = Client()
 
-    # loading validation data (automatically replaced by test data when run on tira)
+    # loading validation data
     text_validation = tira.pd.inputs(
         "nlpbuw-fsu-sose-24", "language-identification-validation-20240429-training"
     )
@@ -23,7 +23,6 @@ if __name__ == "__main__":
     def tokenize(text):
         return re.findall(r'\b\w+\b', text.lower())
 
-    # Initialize TF-IDF vectorizer
     tfidf_vectorizer = TfidfVectorizer(tokenizer=tokenize)
 
     # Fit TF-IDF vectorizer on the text data
@@ -36,9 +35,7 @@ if __name__ == "__main__":
     # Predict languages for the validation set
     predicted_languages = knn_classifier.predict(tfidf_vectorizer.transform(text_validation['text']))
 
-    # Compute F1 score
     f1 = f1_score(targets_validation['lang'], predicted_languages, average='weighted')
-
     print(f"F1 score: {f1}")
 
     # Save predictions to JSON lines file
