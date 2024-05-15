@@ -11,7 +11,7 @@ from tira.third_party_integrations import get_output_directory
 if __name__ == "__main__":
     tira = Client()
 
-    # loading validation data
+    # loading validation data 
     text_validation = tira.pd.inputs(
         "nlpbuw-fsu-sose-24", "language-identification-validation-20240429-training"
     )
