@@ -1,0 +1,6 @@
+# docker build -t fschlatt/authorship-verification-trivial:0.0.1 .
+FROM fschlatt/natural-language-processing-exercises:0.0.1
+
+ADD n-gram.py /code/n-gram.py
+
+ENTRYPOINT ["python", "/code/n-gram.py"]
