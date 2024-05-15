@@ -3,4 +3,4 @@ FROM fschlatt/natural-language-processing-exercises:0.0.1
 
 ADD assi2.py /code/assi2.py
 
-ENTRYPOINT ["python3", "/code/assi2.py"]
+ENTRYPOINT ["python", "/code/assi2.py"]
